@@ -26,7 +26,7 @@ from Github) and run these commands:
 
 Next, install Docker by running these commands:
 
-`$ curl ­-fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-­key  add -`  
+`$ curl ­-fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-­key  add -`<br/>
 `$ sudo add­-apt-­repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release ­cs) stable"`  
 `$ sudo apt-­get update`  
 `$ sudo apt-­cache policy docker­-ce`  
@@ -50,7 +50,7 @@ Run this command:
 
 You should see a “listening...” message in the output, indicating that the server is running and waiting for requests. You can now open a separate terminal and manually send requests to the
 server using ‘curl’. An example curl command is the following:  
-`$ curl http://localhost:5000/calculate -­X POST -­H 'content-­type:application/json' -­d '{"calculatorState": null, "input": "1"}'`  
+`$ curl http://localhost:5000/calculate -­X POST -­H 'content-­type:application/json' -d '{"calculatorState": null, "input": "1"}'`  
 The output returned from the server will be a JSON object representing the next state of the calculator. You can use this object as the input of your next request. Note that the server
 listens on port 5000.
 
