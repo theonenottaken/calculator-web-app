@@ -50,19 +50,19 @@ Run this command:
 
 You should see a “listening...” message in the output, indicating that the server is running and waiting for requests. You can now open a separate terminal and manually send requests to the
 server using ‘curl’. An example curl command is the following:  
-`$ curl http://localhost:5000/calculate -­X POST -­H 'content-­type:  application/json' -­d '{"calculatorState": null, "input": "1"}'`  
+`$ curl http://localhost:5000/calculate -­X POST -­H 'content-­type:application/json' -­d '{"calculatorState": null, "input": "1"}'`  
 The output returned from the server will be a JSON object representing the next state of the calculator. You can use this object as the input of your next request. Note that the server
 listens on port 5000.
 
 #### Running the Integration Tests
 
-This is simple at this point. `cd` to the directory containing the relevant code files and run this command:
+This is simple at this point. `cd` to the directory containing the relevant code files and run this command:  
 `$ node it_test.js`  
 (This assumes you have the web server running already.)
 
 #### Running the Web Server in a Docker Container 
 
-To run the calculator web server in a docker container, run this command:
+To run the calculator web server in a docker container, run this command:  
 `$ sudo docker run -­t -­p 5000:5000 calculate`  
 You should see the “listening...” message again.
 
