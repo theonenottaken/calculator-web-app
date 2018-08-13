@@ -1,0 +1,32 @@
+version: '2'
+services:
+ calculate:
+   build: .
+
+ redis:
+   image: redis:alpine
+
+ user-service:
+   image: webdevtoolsandtech/user-service
+   environment:
+     REDIS_ADDRESS: redis:6379
+   depends_on:
+     - redis
+
+ currency-frontend:
+   image: webdevtoolsandtech/currency-frontend
+
+ currency-backend:
+   image: webdevtoolsandtech/currency-backend
+   environment:
+     REDIS_ADDRESS: redis:6379
+     SESSION_SECRET: 'evasive maneuvers'
+     USER_SERVICE_ADDRESS: user-service:80 
+     FRONTEND_ADDRESS: currency-frontend:80
+     CALCULATOR_ADDRESS: calculate:5000
+   ports:
+     - "3000:80"
+   depends_on:
+     - redis
+     - calculate
+     - user-service
